@@ -1,4 +1,5 @@
 ﻿using SquareCounter.Models;
+using SquareCounterTests.Constants;
 using SquareCounterTests.Models;
 
 namespace SquareCounterTests
@@ -25,7 +26,7 @@ namespace SquareCounterTests
                     Assert.AreEqual(triangle.A, curTriangle.Sides[0]);
                     Assert.AreEqual(triangle.B, curTriangle.Sides[1]);
                     Assert.AreEqual(triangle.C, curTriangle.Sides[2]);
-                    Assert.AreEqual(square, curTriangle.Square, 0.1);
+                    Assert.AreEqual(square, curTriangle.Square, curTriangle.Square * Const.SQUARE_TOLERANCE);
 
                     var isNormal = triangle.IsNormal();
                     Assert.AreEqual(isNormal, curTriangle.IsNormal);

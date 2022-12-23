@@ -1,6 +1,7 @@
 using SquareCounter.Enums;
 using SquareCounterTests.Models;
 using SquareCounter.Properties;
+using SquareCounterTests.Constants;
 
 namespace SquareCounterTests
 {
@@ -30,7 +31,7 @@ namespace SquareCounterTests
                         curTriangle.Sides[1],
                         curTriangle.Sides[2]);
 
-                    Assert.AreEqual(result, curTriangle.Square, curTriangle.Square * 0.01);
+                    Assert.AreEqual(result, curTriangle.Square, curTriangle.Square * Const.SQUARE_TOLERANCE);
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -52,7 +53,7 @@ namespace SquareCounterTests
                 try
                 {
                     var result = _counter.CircleSquareCount(curCircle.Radius[0]);
-                    Assert.AreEqual(result, curCircle.Square, curCircle.Square * 0.01);
+                    Assert.AreEqual(result, curCircle.Square, curCircle.Square * Const.SQUARE_TOLERANCE);
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -74,7 +75,7 @@ namespace SquareCounterTests
                 try
                 {
                     var result = _counter.FigureSquareCount(FigureType.Triangle, curTriangle.Sides);
-                    Assert.AreEqual(result, curTriangle.Square, curTriangle.Square * 0.01);
+                    Assert.AreEqual(result, curTriangle.Square, curTriangle.Square * Const.SQUARE_TOLERANCE);
                 }
                 catch (Exception e)
                 {
@@ -88,7 +89,7 @@ namespace SquareCounterTests
                 try
                 {
                     var result = _counter.FigureSquareCount(FigureType.Circle, curCircle.Radius);
-                    Assert.AreEqual(result, curCircle.Square, curCircle.Square * 0.01);
+                    Assert.AreEqual(result, curCircle.Square, curCircle.Square * Const.SQUARE_TOLERANCE);
                 }
                 catch (Exception e)
                 {

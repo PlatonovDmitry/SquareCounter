@@ -1,4 +1,5 @@
 ﻿using SquareCounter.Models;
+using SquareCounterTests.Constants;
 using SquareCounterTests.Models;
 
 namespace SquareCounterTests
@@ -24,7 +25,7 @@ namespace SquareCounterTests
                     var circle = CircleFigure.GetCircle(curCircle.Radius);
                     var square = circle.GetSquare();
                     Assert.AreEqual(circle.Radius, curCircle.Radius[0]);
-                    Assert.AreEqual(square, curCircle.Square, 0.1);
+                    Assert.AreEqual(square, curCircle.Square, curCircle.Square * Const.SQUARE_TOLERANCE);
                 }
                 catch (Exception e)
                 {

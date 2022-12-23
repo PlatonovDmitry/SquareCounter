@@ -3,6 +3,7 @@ using SquareCounter.Models;
 using SquareCounter.Services;
 using SquareCounterTests.Models;
 using SquareCounter.Properties;
+using SquareCounterTests.Constants;
 
 namespace SquareCounterTests
 {
@@ -33,7 +34,7 @@ namespace SquareCounterTests
                     var circle = (CircleFigure)circleFigure;
                     var square = circle.GetSquare();
                     Assert.AreEqual(circle.Radius, curCircle.Radius[0]);
-                    Assert.AreEqual(square, curCircle.Square, 0.1);
+                    Assert.AreEqual(square, curCircle.Square, curCircle.Square * Const.SQUARE_TOLERANCE);
                 }
                 catch (Exception e)
                 {
@@ -58,7 +59,7 @@ namespace SquareCounterTests
                     Assert.AreEqual(triangle.A, curTriangle.Sides[0]);
                     Assert.AreEqual(triangle.B, curTriangle.Sides[1]);
                     Assert.AreEqual(triangle.C, curTriangle.Sides[2]);
-                    Assert.AreEqual(square, curTriangle.Square, 0.1);
+                    Assert.AreEqual(square, curTriangle.Square, curTriangle.Square * Const.SQUARE_TOLERANCE);
 
                     var isNormal = triangle.IsNormal();
                     Assert.AreEqual(isNormal, curTriangle.IsNormal);
