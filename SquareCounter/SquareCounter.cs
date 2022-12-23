@@ -1,7 +1,9 @@
-﻿using SquareCounter.Enums;
+﻿using System.Runtime.CompilerServices;
+using SquareCounter.Enums;
 using SquareCounter.Models;
 using SquareCounter.Services;
 
+[assembly: InternalsVisibleTo("SquareCounterTests")]
 namespace SquareCounter
 {
     public class SquareCounter

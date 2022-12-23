@@ -1,6 +1,7 @@
 ﻿using SquareCounter.Enums;
 using SquareCounter.Models;
 using System;
+using SquareCounter.Properties;
 
 namespace SquareCounter.Services
 {
@@ -15,7 +16,7 @@ namespace SquareCounter.Services
                 case FigureType.Triangle:
                     return TriangleFigure.GetTriangle(sizes);
                 default:
-                    throw new ArgumentException("Не известный тип фигуры");
+                    throw new ArgumentException(Resources.FigureGenerator_WrongTypeException);
             }
         }
     }

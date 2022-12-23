@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using SquareCounter.Properties;
 
 namespace SquareCounter.Models
 {
@@ -16,14 +15,14 @@ namespace SquareCounter.Models
 
         public double GetSquare() => Math.PI * Math.Pow(Radius, 2) / 2;
 
-        public static CircleFigure GetCircle(double[] sizes)
+        public static CircleFigure GetCircle(params double[] sizes)
         {
             if (sizes?.Any() != true)
-                throw new ArgumentException("Не верный формат входных параметров");
+                throw new ArgumentException(Resources.Figure_DataFormatException);
 
             var radius = sizes[0];
             if (radius <= 0)
-                throw new ArgumentException("Радиус окружности не может быть отрицательным числом");
+                throw new ArgumentException(Resources.CircleFigure_RadiusValueException);
 
             return new CircleFigure(radius);
         }

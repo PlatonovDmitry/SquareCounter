@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using SquareCounter.Properties;
 
 namespace SquareCounter.Models
 {
@@ -28,21 +29,21 @@ namespace SquareCounter.Models
         public bool IsNormal()
         {
             var squares = _edges.OrderBy(t => t).Select(t => Math.Pow(t, 2)).ToArray();
-            return squares.Take(2).Sum().Equals(squares.Last());
+            return Math.Abs(squares.Take(2).Sum() - squares.Last()) < squares.Last() * 0.01;
         }
 
 
-        public static TriangleFigure GetTriangle(double[] edges)
+        public static TriangleFigure GetTriangle(params double[] edges)
         {
             var myEdges = edges?.Take(3).OrderBy(t => t).ToArray();
             if (myEdges?.Count() < 3)
-                throw new ArgumentException("Не верный формат входных данных");
+                throw new ArgumentException(Resources.Figure_DataFormatException);
 
             if (myEdges.Any(t => t <= 0))
-                throw new ArgumentException("Ни одна сторона треугольника не должна быть меньше нуля");
+                throw new ArgumentException(Resources.TriangleFigure_LessZeroSideException);
 
             if (myEdges.Take(2).Sum() <= myEdges.Last())
-                throw new ArgumentException("Не возможно построить треугольник с таки м набором сторон");
+                throw new ArgumentException(Resources.TriangleFigure_WonngSizesException);
 
             return new TriangleFigure(edges.Take(3).ToArray());
         }

@@ -11,7 +11,7 @@ namespace SquareCounterUse
         static void Main(string[] args)
         {
             var counter = new SquareCounter.SquareCounter();
-            Console.WriteLine(counter.TriangleSquareCount(3, 5, 1));
+            Console.WriteLine(counter.TriangleSquareCount(4, 5, 2));
             Console.ReadKey();
         }
     }
